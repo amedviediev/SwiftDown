@@ -107,6 +107,9 @@
     var text: String {
       didSet {
         textView.string = text
+        textView.storage.beginEditing()
+        textView.storage.applyStyles()
+        textView.storage.endEditing()
       }
     }
 
