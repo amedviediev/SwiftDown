@@ -17,7 +17,7 @@ let package = Package(
   dependencies: [
     .package(
       url: "https://github.com/swiftlang/swift-markdown.git",
-      branch: "main"
+      from: "0.7.0"
     ),
     .package(url: "https://github.com/Quick/Nimble.git", .upToNextMajor(from: "9.0.0")),
   ],
