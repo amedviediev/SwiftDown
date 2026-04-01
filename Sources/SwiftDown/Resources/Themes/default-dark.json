@@ -1,67 +1,63 @@
 {
     "name": "Default Dark",
-    "author": {
-        "name": "Quentin Eude",
-        "email": "quentineude@gmail.com"
-    },
     "version": "1.0",
     "editor": {
-        "backgroundColor": "#1D1F21",
-        "tintColor": "#A1A8B5",
-        "cursorColor": "#A1A8B5"
+        "backgroundColor": "#191820",
+        "tintColor": "#EBE8F0",
+        "cursorColor": "#1D9E75"
     },
     "styles": {
         "h1": {
-            "color": "#D36770",
+            "color": "#EBE8F0",
             "size": 23
         },
         "h2": {
-            "color": "#D36770",
+            "color": "#EBE8F0",
             "size": 20
         },
         "h3": {
-            "color": "#D36770",
+            "color": "#EBE8F0",
             "size": 18
         },
         "h4": {
-            "color": "#D36770"
+            "color": "#EBE8F0"
         },
         "h5": {
-            "color": "#D36770"
+            "color": "#EBE8F0"
         },
         "h6": {
-            "color": "#D36770"
+            "color": "#EBE8F0"
         },
         "body": {
             "font": "Menlo-Regular",
             "size": 15,
-            "color": "#A1A8B5"
+            "color": "#EBE8F0"
         },
         "bold": {
             "font": "Menlo-Bold",
-            "color": "#D19A66"
+            "color": "#EBE8F0"
         },
         "italic": {
             "font": "Menlo-Italic",
-            "color": "#C678DD"
+            "color": "#EBE8F0"
         },
         "link": {
-            "color": "#A66BFF"
+            "color": "#6BA3D6"
         },
         "image": {
-            "color": "#A66BFF"
+            "color": "#6BA3D6"
         },
         "inlineCode": {
-            "color": "#A7E3A6"
+            "color": "#1D9E75"
         },
         "codeBlock": {
-            "color": "#A7E3A6"
+            "color": "#1D9E75"
         },
         "blockQuote": {
-            "color": "#1CBD47"
+            "color": "#949AA8"
         },
         "list": {
-            "color": "#A7E3A6"
+            "color": "#EBE8F0"
         }
     }
 }
