@@ -81,6 +81,11 @@
     required init?(coder: NSCoder) {
       fatalError("init(coder:) has not been implemented")
     }
+
+    // Always paste as plain text to preserve markdown source characters.
+    override func paste(_ sender: Any?) {
+      pasteAsPlainText(sender)
+    }
   }
 
   // MARK: - SwiftDown macOS

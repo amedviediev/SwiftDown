@@ -96,14 +96,7 @@ public class Storage: NSTextStorage {
   override public func processEditing() {
     super.processEditing()
     if editedMask.contains(.editedCharacters) {
-      // If the edit spans multiple paragraphs (e.g. paste), restyle the full document
-      // because the paragraph heuristic only covers one \n\n-delimited block.
-      if let range = Range(editedRange, in: self.string),
-         self.string[range].contains("\n\n") {
-        applyStyles()
-      } else {
-        applyStyles(editedRange: editedRange)
-      }
+      applyStyles(editedRange: editedRange)
     }
   }
 
