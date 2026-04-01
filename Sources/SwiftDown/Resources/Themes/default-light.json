@@ -1,63 +1,70 @@
 {
     "name": "Default Light",
+    "author": {
+        "name": "Quentin Eude",
+        "email": "quentineude@gmail.com"
+    },
     "version": "1.0",
+    "variables": {
+        "boldFont": "not implemented yet"
+    },
     "editor": {
-        "backgroundColor": "#FAFBFC",
-        "tintColor": "#1A1D23",
-        "cursorColor": "#0F6E56"
+        "backgroundColor": "#FFFFFF",
+        "tintColor": "#1D1F21",
+        "cursorColor": "#1D1F21"
     },
     "styles": {
         "h1": {
-            "color": "#1A1D23",
+            "color": "#C96667",
             "size": 23
         },
         "h2": {
-            "color": "#1A1D23",
+            "color": "#C96667",
             "size": 20
         },
         "h3": {
-            "color": "#1A1D23",
+            "color": "#C96667",
             "size": 18
         },
         "h4": {
-            "color": "#1A1D23"
+            "color": "#C96667"
         },
         "h5": {
-            "color": "#1A1D23"
+            "color": "#C96667"
         },
         "h6": {
-            "color": "#1A1D23"
+            "color": "#C96667"
         },
         "body": {
             "font": "Menlo-Regular",
             "size": 15,
-            "color": "#1A1D23"
+            "color": "#252628"
         },
         "bold": {
             "font": "Menlo-Bold",
-            "color": "#1A1D23"
+            "color": "#DC9364"
         },
         "italic": {
             "font": "Menlo-Italic",
-            "color": "#1A1D23"
+            "color": "#B195BA"
         },
         "link": {
-            "color": "#2D6BBF"
+            "color": "#a66bff"
         },
         "image": {
-            "color": "#2D6BBF"
+            "color": "#a66bff"
         },
         "inlineCode": {
-            "color": "#085041"
+            "color": "#A3A5A8"
         },
         "codeBlock": {
-            "color": "#085041"
+            "color": "#A3A5A8"
         },
         "blockQuote": {
-            "color": "#6B7080"
+            "color": "#1CBD47"
         },
         "list": {
-            "color": "#1A1D23"
+            "color": "#A3A5A8"
         }
     }
 }
