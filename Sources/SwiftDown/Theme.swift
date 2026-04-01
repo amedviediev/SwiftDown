@@ -11,7 +11,7 @@
   import AppKit
 #endif
 
-public struct Theme {
+public struct Theme: @unchecked Sendable {
   // MARK: - BuildIn
   public enum BuiltIn: String {
     case defaultDark = "default-dark"
@@ -29,9 +29,9 @@ public struct Theme {
 
   public init(_ name: String) {
     self.init()
-    let bundle = Bundle.module
+    let bundle = Bundle.swiftDown
 
-    guard let path = bundle.path(forResource: "Themes/\(name)", ofType: "json") else {
+    guard let path = bundle.path(forResource: name, ofType: "json", inDirectory: "Themes") ?? bundle.path(forResource: "Themes/\(name)", ofType: "json") else {
       print("[SwiftDown] Unable to load your theme file.")
       assertionFailure()
       return

@@ -8,6 +8,7 @@
 #if os(iOS)
 import UIKit
 
+@MainActor
 class SwiftDownHighlighter {
   weak var textView: UITextView?
 
@@ -30,6 +31,7 @@ class SwiftDownHighlighter {
 #else
 import AppKit
 
+@MainActor
 class SwiftDownHighlighter {
   let textView: NSTextView
 

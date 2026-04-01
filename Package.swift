@@ -1,4 +1,4 @@
-// swift-tools-version:5.7
+// swift-tools-version:5.9
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -6,8 +6,8 @@ import PackageDescription
 let package = Package(
   name: "SwiftDown",
   platforms: [
-    .macOS(.v12),
-    .iOS(.v14),
+    .macOS(.v14),
+    .iOS(.v17),
   ],
   products: [
     .library(
@@ -16,15 +16,17 @@ let package = Package(
   ],
   dependencies: [
     .package(
-      url: "https://github.com/johnxnguyen/Down.git",
-      from: "0.11.0"
+      url: "https://github.com/swiftlang/swift-markdown.git",
+      branch: "main"
     ),
     .package(url: "https://github.com/Quick/Nimble.git", .upToNextMajor(from: "9.0.0")),
   ],
   targets: [
     .target(
       name: "SwiftDown",
-      dependencies: ["Down"],
+      dependencies: [
+        .product(name: "Markdown", package: "swift-markdown")
+      ],
       exclude: ["../../SwiftDownDemo"],
       resources: [.copy("Resources/Themes")]
     ),

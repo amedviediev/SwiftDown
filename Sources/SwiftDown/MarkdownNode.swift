@@ -5,7 +5,6 @@
 //  Created by Quentin Eude on 16/03/2021.
 //
 
-import Down
 import Foundation
 
 public struct MarkdownNode: Equatable {
@@ -22,7 +21,7 @@ public struct MarkdownNode: Equatable {
   }
 
   // MARK: - MarkdownType
-  public enum MarkdownType: Equatable, CaseIterable {
+  public enum MarkdownType: Equatable, CaseIterable, Sendable {
     case quote
     case list
     case codeBlock

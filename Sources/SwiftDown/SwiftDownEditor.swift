@@ -5,7 +5,6 @@
 //  Created by Quentin Eude on 16/03/2021.
 //
 
-import Down
 import SwiftUI
 import Combine
 
@@ -170,23 +169,18 @@ public struct SwiftDownEditor: UIViewRepresentable {
     public func makeNSView(context: Context) -> SwiftDown {
       let swiftDown = SwiftDown(theme: theme, isEditable: isEditable, insetsSize: insetsSize)
       swiftDown.delegate = context.coordinator
-      swiftDown.setupTextView()
+      Task { @MainActor in
+        swiftDown.setupTextView()
+      }
       swiftDown.text = text
       return swiftDown
     }
 
     public func updateNSView(_ nsView: SwiftDown, context: Context) {
-      context.coordinator.cancellable?.cancel()
-      context.coordinator.cancellable = Timer
-        .publish(every: debounceTime, on: .current, in: .default)
-        .autoconnect()
-        .first()
-        .sink { _ in
-          let selectedRanges = nsView.selectedRanges
-          nsView.text = text
-          nsView.applyStyles()
-          nsView.selectedRanges = selectedRanges
-        }
+      guard nsView.text != text else { return }
+      let selectedRanges = nsView.selectedRanges
+      nsView.text = text
+      nsView.selectedRanges = selectedRanges
     }
 
     public func makeCoordinator() -> Coordinator {

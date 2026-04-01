@@ -20,7 +20,7 @@ A markdown editor component for your SwiftUI apps.
 Either use Xcode to add the package dependency or add the following dependency to your Package.swift:
 
 ```
-.package(url: "https://github.com/qeude/SwiftDown.git", from: "0.4.1),
+.package(url: "https://github.com/amedviediev/SwiftDown.git", from: "0.4.1),
 ```
 
 ## 🔧 Usage
@@ -63,6 +63,8 @@ Theme(themePath: Bundle.main.path(forResource: "my-custom-theme", ofType: "json"
 
 ## 👨🏻‍💻 Author
 
-- Quentin Eude
-  - [Github](https://github.com/qeude)
-  - [LinkedIn](https://www.linkedin.com/in/quentineude/)
+- Anton Medviediev:
+  - [Github](https://github.com/amedviediev)
+  - [LinkedIn](https://www.linkedin.com/in/anton-medviediev-2b670880/)
+
+Forked from [qeude/SwiftDown](https://github.com/qeude/SwiftDown)

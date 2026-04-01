@@ -93,6 +93,13 @@ public class Storage: NSTextStorage {
     return backingStore.attributes(at: location, effectiveRange: range)
   }
 
+  override public func processEditing() {
+    super.processEditing()
+    if editedMask.contains(.editedCharacters) {
+      applyStyles(editedRange: editedRange)
+    }
+  }
+
   func applyStyles(editedRange: NSRange? = nil) {
     let paragraphNSRange = self.string.paragraph(for: editedRange)
     let paragraphRange = Range(paragraphNSRange, in: self.string)
