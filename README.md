@@ -1,29 +1,31 @@
 # SwiftDown
 
-[![codecov](https://codecov.io/gh/qeude/SwiftDown/branch/main/graph/badge.svg?token=RB6K3Q5QIO)](https://codecov.io/gh/qeude/SwiftDown)
-
-## 📖 Description
-
 A markdown editor component for your SwiftUI apps.
 
-- 🎉 Live preview directly in editor for most of Markdown elements, without web based preview.
-- ⚡️ Fast, built on top of [cmark](https://github.com/commonmark/cmark).
-- 🗒 Pure markdown, no proprietary format.
-- 💻:📱 macOS and iOS support.
+- Live preview directly in editor for most Markdown elements, without web-based preview.
+- Built on Apple's [swift-markdown](https://github.com/swiftlang/swift-markdown) parser.
+- Pure markdown, no proprietary format.
+- macOS and iOS support.
 
-<div align=center><img src="resources/demo.gif" align=center height="500"></div>
+Forked from [qeude/SwiftDown](https://github.com/qeude/SwiftDown) with the following changes:
 
-## 🛠️ Install
+- Replaced unmaintained [cmark](https://github.com/commonmark/cmark)/[Down](https://github.com/johnxnot/Down) dependency with Apple's `swift-markdown`
+- Swift 6 strict concurrency support
+- Inline highlighting via `NSTextStorage.processEditing()` (no debounce delay)
+- Proper font trait merging (bold/italic inside headings preserves heading size)
+- Plain text paste (preserves markdown syntax when pasting from rich text sources)
 
-### 📦 Swift Package Manager
+## Install
 
-Either use Xcode to add the package dependency or add the following dependency to your Package.swift:
+### Swift Package Manager
 
+Either use Xcode to add the package dependency or add the following dependency to your `Package.swift`:
+
+```swift
+.package(url: "https://github.com/amedviediev/SwiftDown.git", from: "0.5.1")
 ```
-.package(url: "https://github.com/amedviediev/SwiftDown.git", from: "0.5.0),
-```
 
-## 🔧 Usage
+## Usage
 
 ```swift
 import SwiftDown
@@ -40,31 +42,22 @@ struct ContentView: View {
 }
 ```
 
-## 🖌️ Themes
+## Themes
 
-### 🖼 BuildIn themes
+### Built-in themes
 
-#### Default Dark
+Two built-in themes are included: `defaultDark` and `defaultLight`.
 
-<img src="resources/default-dark-theme.png" height="400">
+### Custom themes
 
-#### Default Light
-
-<img src="resources/default-light-theme.png" height="400">
-
-### 🧑‍🎨 Custom themes
-
-SwiftDown supports theming by using config `.json` files as [this one](./Sources/SwiftDown/Resources/Themes/default-dark.json)
-Then init your custom theme as below.
+SwiftDown supports theming via JSON config files. See [default-dark.json](./Sources/SwiftDown/Resources/Themes/default-dark.json) for the format.
 
 ```swift
-Theme(themePath: Bundle.main.path(forResource: "my-custom-theme", ofType: "json"))
+Theme(themePath: Bundle.main.path(forResource: "my-custom-theme", ofType: "json")!)
 ```
 
-## 👨🏻‍💻 Author
+## Author
 
-- Anton Medviediev:
-  - [Github](https://github.com/amedviediev)
-  - [LinkedIn](https://www.linkedin.com/in/anton-medviediev-2b670880/)
+- Anton Medviediev — [GitHub](https://github.com/amedviediev)
 
-Forked from [qeude/SwiftDown](https://github.com/qeude/SwiftDown)
+Forked from [qeude/SwiftDown](https://github.com/qeude/SwiftDown) by Quentin Eude.
