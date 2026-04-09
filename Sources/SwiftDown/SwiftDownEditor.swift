@@ -152,6 +152,7 @@ public struct SwiftDownEditor: UIViewRepresentable {
     private(set) var isEditable: Bool = true
     private(set) var theme: Theme = Theme.BuiltIn.defaultDark.theme()
     private(set) var insetsSize: CGFloat = 0
+    private(set) var cursorRectsEnabled: Bool = true
 
     public var onTextChange: (String) -> Void = { _ in }
     public var onSelectionChange: (NSRange) -> Void = { _ in }
@@ -177,6 +178,7 @@ public struct SwiftDownEditor: UIViewRepresentable {
     }
 
     public func updateNSView(_ nsView: SwiftDown, context: Context) {
+      nsView.cursorRectsEnabled = cursorRectsEnabled
       guard nsView.text != text else { return }
       let selectedRanges = nsView.selectedRanges
       nsView.text = text
@@ -235,6 +237,14 @@ extension SwiftDownEditor {
     editor.isEditable = isEditable
     return editor
   }
+
+  #if os(macOS)
+  public func cursorRectsEnabled(_ enabled: Bool) -> Self {
+    var editor = self
+    editor.cursorRectsEnabled = enabled
+    return editor
+  }
+  #endif
 
   public func debounceTime(_ debounceTime: Double) -> Self {
      var editor = self

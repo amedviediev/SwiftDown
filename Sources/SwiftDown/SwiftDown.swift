@@ -86,6 +86,32 @@
     override func paste(_ sender: Any?) {
       pasteAsPlainText(sender)
     }
+
+    var cursorRectsEnabled: Bool = true
+    private var savedCursorTrackingAreas: [NSTrackingArea] = []
+
+    override func resetCursorRects() {
+      guard cursorRectsEnabled else { return }
+      super.resetCursorRects()
+    }
+
+    override func updateTrackingAreas() {
+      super.updateTrackingAreas()
+      if !cursorRectsEnabled {
+        stripCursorTrackingAreas()
+      }
+    }
+
+    func stripCursorTrackingAreas() {
+      let areas = trackingAreas.filter { $0.options.contains(.cursorUpdate) }
+      savedCursorTrackingAreas = areas
+      for area in areas { removeTrackingArea(area) }
+    }
+
+    func restoreCursorTrackingAreas() {
+      for area in savedCursorTrackingAreas { addTrackingArea(area) }
+      savedCursorTrackingAreas = []
+    }
   }
 
   // MARK: - SwiftDown macOS
@@ -115,6 +141,18 @@
         textView.storage.beginEditing()
         textView.storage.applyStyles()
         textView.storage.endEditing()
+      }
+    }
+
+    public var cursorRectsEnabled: Bool = true {
+      didSet {
+        textView.cursorRectsEnabled = cursorRectsEnabled
+        window?.invalidateCursorRects(for: textView)
+        if cursorRectsEnabled {
+          textView.restoreCursorTrackingAreas()
+        } else {
+          textView.stripCursorTrackingAreas()
+        }
       }
     }
 
